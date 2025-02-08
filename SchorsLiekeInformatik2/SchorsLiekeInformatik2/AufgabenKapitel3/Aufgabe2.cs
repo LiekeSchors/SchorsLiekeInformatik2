@@ -2,7 +2,7 @@ using System;
 
 namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
     public class Aufgabe2 {
-        public void GebeABBAAus(){
+        public void GebeAbbaAus(){
             // Aufgabe 3.2
             char grossesA = Convert.ToChar(65);
             char grossesB = Convert.ToChar(66);

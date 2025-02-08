@@ -22,7 +22,7 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                         break;
                     case 2:
                         Aufgabe2 aufgabe2 = new Aufgabe2();
-                        aufgabe2.GebeABBAAus();
+                        aufgabe2.GebeAbbaAus();
                         break;
                     case 3:
                         Aufgabe3 aufgabe3 = new Aufgabe3();

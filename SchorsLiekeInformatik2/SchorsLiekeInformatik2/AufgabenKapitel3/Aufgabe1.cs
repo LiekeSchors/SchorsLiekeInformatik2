@@ -36,29 +36,23 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
             endkapital = Math.Round(endkapital, 2);
             string jahrSubstantivNumerus;
             if (dauer != 1) {
-                jahrSubstantivNumerus = "Jahren: ";
+                jahrSubstantivNumerus = " Jahren: ";
             }
             else {
-                jahrSubstantivNumerus = "Jahr: ";
+                jahrSubstantivNumerus = " Jahr: ";
             }
 
             Console.WriteLine("Endkapital nach " + dauer + jahrSubstantivNumerus + endkapital + " Euro");
         }
-
-
-        // TODO ACHTUNG
-        // TODO ACHTUNG: Nicht auskommentieren! Wird in Aufgabe 3 benoetigt 
-        // TODO ACHTUNG
-
-        // TODO: Methode so anpassen, dass nur eine notwendig ist und Pruefung abhaengig vom Input erfolgt.
-
-
+        
+        // TODO: Fehlertexte in Art PropertiesFile auslagern
         public static string GeldbetragError = "Bitte geben Sie einen Geldbetrag ein. Buchstaben sind nicht erlaubt.";
 
         /**
          * Methode, die den String-Input darauf ueberprueft, ob dieser in ein Double umgewandelt werden kann.
          * Dies wird solange gemacht, bis der Input passt.
          */
+        // TODO: Methode so anpassen, dass nur eine notwendig ist und Pruefung abhaengig vom Input(double/int etc.) erfolgt.
         public static double CheckDoubleDataTypeInInput(string errorMessage){
             double eingabeAlsDouble = 0.0;
 
