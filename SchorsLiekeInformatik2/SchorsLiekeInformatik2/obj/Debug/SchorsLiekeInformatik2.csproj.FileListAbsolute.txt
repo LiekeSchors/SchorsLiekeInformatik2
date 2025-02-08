@@ -1,0 +1,6 @@
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\bin\Debug\SchorsLiekeInformatik2.exe
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\bin\Debug\SchorsLiekeInformatik2.pdb
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\obj\Debug\SchorsLiekeInformatik2.csproj.AssemblyReference.cache
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\obj\Debug\SchorsLiekeInformatik2.csproj.CoreCompileInputs.cache
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\obj\Debug\SchorsLiekeInformatik2.exe
+C:\Users\lieke\RiderProjects\SchorsLiekeInformatik2\SchorsLiekeInformatik2\obj\Debug\SchorsLiekeInformatik2.pdb
