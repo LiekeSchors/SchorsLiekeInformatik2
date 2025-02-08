@@ -12,7 +12,7 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
 
                 while (aufgabe < 1 || aufgabe > 4) {
                     Console.WriteLine("Wählen Sie eine Zahl von 1 bis 4.");
-                    aufgabe = CheckIntegerDataTypeInInput(IntegerError);
+                    aufgabe = (int) CheckDataTypeInInput(IntegerError, Datentyp.Integer);
                 }
 
                 switch (aufgabe) {
@@ -34,14 +34,14 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                         break;
                 }
 
-                Console.WriteLine("Möchten sie noch eine Aufgabe testen? Drücken Sie 'j' für 'Ja', 'n' für 'Nein'.");
+                Console.WriteLine("\nMöchten sie noch eine Aufgabe testen? Drücken Sie 'j' für 'Ja', 'n' für 'Nein'.");
                 string wahl = Console.ReadLine();
                 if (wahl == "j") {
                     naechsteAufgabe = true;
                 }
                 else {
                     naechsteAufgabe = false;
-                    Console.WriteLine("Das Programm wird beendet...");
+                    Console.WriteLine("\nDas Programm wird beendet...");
                 }
                 
                 Console.WriteLine();

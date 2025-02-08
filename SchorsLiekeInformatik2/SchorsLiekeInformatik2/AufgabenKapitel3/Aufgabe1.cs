@@ -5,19 +5,24 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
         public void BerechneKapital(){
             // Aufgabe 3.1
             Console.WriteLine("Bitte geben Sie das Startkapital ein: ");
-            double startKapital = CheckDoubleDataTypeInInput(GeldbetragError);
-            // TODO: Pruefen, dass groesser 0
-            
-            
+            double startKapital = 0;
+            while (startKapital <= 0.0) {
+                startKapital = (double) CheckDataTypeInInput(GeldbetragError, Datentyp.Double);
+            }
+
             Console.WriteLine("Bitte geben Sie den Zinssatz in % ein: ");
-            double zinssatz = CheckDoubleDataTypeInInput(
-                "Bitte geben Sie einen Prozentsatz ein. Buchstaben sind nicht erlaubt.");
-            
+            double zinssatz = 0;
+            while (zinssatz <= 0.0) {
+                zinssatz = (double) CheckDataTypeInInput(
+                    "Bitte geben Sie einen Prozentsatz ein. Buchstaben sind nicht erlaubt.", Datentyp.Double);
+            }
+
             Console.WriteLine("Bitte geben Sie die Spardauer in ganzen Jahren an: ");
-            int dauer = CheckIntegerDataTypeInInput(IntegerError);
-            // TODO: Pruefen, dass groesser 0
-            
-            
+            int dauer = 0;
+            while (dauer <= 0) {
+                dauer = (int) CheckDataTypeInInput(IntegerError, Datentyp.Integer);
+            }
+
             Console.WriteLine("Startkapital: " + startKapital + " Euro");
             Console.WriteLine("Zinssatz: " + zinssatz + "%");
 
@@ -33,7 +38,7 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 }
             }
 
-            endkapital = Math.Round(endkapital, 2);
+            endkapital = Math.Round(endkapital, 3); // Runden auf 3 Nachkommastellen (s. Endkapital in Aufgabe)
             string jahrSubstantivNumerus;
             if (dauer != 1) {
                 jahrSubstantivNumerus = " Jahren: ";
@@ -44,26 +49,36 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
 
             Console.WriteLine("Endkapital nach " + dauer + jahrSubstantivNumerus + endkapital + " Euro");
         }
-        
+
         // TODO: Fehlertexte in Art PropertiesFile auslagern
-        public static string GeldbetragError = "Bitte geben Sie einen Geldbetrag ein. Buchstaben sind nicht erlaubt.";
+        public static string GeldbetragError = "Bitte geben Sie einen Geldbetrag > 0.0 ein. Buchstaben sind nicht erlaubt.";
+
+        public static string IntegerError = "Bitte geben Sie eine Ganzzahl > 0 ein. Buchstaben sind nicht erlaubt.";
 
         /**
-         * Methode, die den String-Input darauf ueberprueft, ob dieser in ein Double umgewandelt werden kann.
+         * Methode, die den String-Input darauf ueberprueft, ob dieser in den gewuenschten Datentyp umgewandelt werden kann.
          * Dies wird solange gemacht, bis der Input passt.
          */
-        // TODO: Methode so anpassen, dass nur eine notwendig ist und Pruefung abhaengig vom Input(double/int etc.) erfolgt.
-        public static double CheckDoubleDataTypeInInput(string errorMessage){
-            double eingabeAlsDouble = 0.0;
-
+        public static Object CheckDataTypeInInput(string errorMessage, Datentyp datentyp){
+            Object konvertierterInput = null;
             bool richtgerDatentyp = false;
 
             while (!richtgerDatentyp) {
                 try {
-                    string eingabeAlsString = Console.ReadLine(); // TODO: Nullsafe machen
-                    eingabeAlsDouble = Convert.ToDouble(eingabeAlsString);
-                    richtgerDatentyp = true;
-                    break;
+                    string eingabeAlsString = Console.ReadLine(); // Muesste noch gegen NPE abgesichert werden
+                    switch (datentyp) {
+                        case Datentyp.Double:
+                            konvertierterInput = Convert.ToDouble(eingabeAlsString);
+                            richtgerDatentyp = true;
+                            break;
+                        case Datentyp.Integer:
+                            konvertierterInput = Convert.ToInt32(eingabeAlsString); // ToInt32 konvertiert zu int
+                            richtgerDatentyp = true;
+                            break;
+                        default:
+                            Console.WriteLine("Dieser Datentyp kann noch nicht überprüft werden.");
+                            break;
+                    }
                 }
                 catch (FormatException) {
                     Console.WriteLine(errorMessage);
@@ -71,34 +86,7 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 }
             }
 
-            return eingabeAlsDouble;
-        }
-
-        public static string IntegerError = "Bitte geben Sie eine Ganzzahl ein. Buchstaben sind nicht erlaubt.";
-
-        /**
-         * Methode, die den String-Input darauf ueberprueft, ob dieser in einen Integer umgewandelt werden kann.
-         * Dies wird solange gemacht, bis der Input passt.
-         */
-        public static int CheckIntegerDataTypeInInput(string errorMessage){
-            int eingabeAlsInteger = 0;
-
-            bool richtgerDatentyp = false;
-
-            while (!richtgerDatentyp) {
-                try {
-                    string eingabeAlsString = Console.ReadLine(); // TODO: Nullsafe machen
-                    eingabeAlsInteger = Convert.ToInt32(eingabeAlsString);
-                    richtgerDatentyp = true;
-                    break;
-                }
-                catch (FormatException) {
-                    Console.WriteLine(errorMessage);
-                    // Evtl. abbrechen, wenn die Eingabe zu oft falsch ist.
-                }
-            }
-
-            return eingabeAlsInteger;
+            return konvertierterInput;
         }
     }
 }
