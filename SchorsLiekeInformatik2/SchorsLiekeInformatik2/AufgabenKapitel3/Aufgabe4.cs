@@ -24,7 +24,7 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 if (b == 0)
                     Console.WriteLine("Unendlich viele Lösungen: 0 = 0.");
                 else
-                    Console.WriteLine("Keine Lösung: Widerspruch.");
+                    Console.WriteLine("Keine Lösung: Widerspruch, 0 != 0");
             }
             else {
                 // Berechnung als double, da das Ergebnis keine Ganzzahl sein muss
