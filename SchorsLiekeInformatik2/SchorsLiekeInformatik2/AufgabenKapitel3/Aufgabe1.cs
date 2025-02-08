@@ -2,7 +2,7 @@
 
 namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
     class Aufgabe1 {
-        static void Main(string[] args){
+        public void BerechneKapital(){
             // Aufgabe 3.1
             Console.WriteLine("Bitte geben Sie das Startkapital ein: ");
             double startKapital = CheckDoubleDataTypeInInput(GeldbetragError);
