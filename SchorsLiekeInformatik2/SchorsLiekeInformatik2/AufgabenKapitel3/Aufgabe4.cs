@@ -10,13 +10,13 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
             Console.WriteLine("Geben Sie einen Wert für die Variable a ein: ");
             // Ueberprueft, ob die Eingabe als int geparsed werden kann und macht dies, wenn dem so ist, sonst folgt die Fehlermeldung.
             while (!int.TryParse(Console.ReadLine(), out a)) {
-                Console.WriteLine("Geben Sie eine Ganzzahl ein. Buchstaben und Kommazahlen sind nicht erlaubt.");
+                Console.WriteLine(Aufgabe1.IntegerError);
             }
             
             int b;
             Console.WriteLine("Geben Sie einen Wert für die Variable b ein: ");
             while (!int.TryParse(Console.ReadLine(), out b)) {
-                Console.WriteLine("Geben Sie eine Ganzzahl ein. Buchstaben und Kommazahlen sind nicht erlaubt.");
+                Console.WriteLine(Aufgabe1.IntegerError);
             }
             
 

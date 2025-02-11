@@ -5,9 +5,15 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
     public class Test {
         static void Main(){
             bool naechsteAufgabe;
-
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // Dies wird gebraucht, damit die Eurozeichen richtig dargestellt wird.
+            
             do {
-                Console.WriteLine("Welche Aufgabe möchten Sie testen?");
+                Console.WriteLine("Welche Aufgabe möchten Sie testen?\n");
+                Console.WriteLine("Aufgabe 1(3.1): Endkapital berechnen");
+                Console.WriteLine("Aufgabe 2(3.2): 'ABBA' ausgeben");
+                Console.WriteLine("Aufgabe 3(3.3): Erlös berechnen");
+                Console.WriteLine("Aufgabe 4(3.4): Lineare Gleichung lösen\n");
+                
                 int aufgabe = 0;
 
                 while (aufgabe < 1 || aufgabe > 4) {

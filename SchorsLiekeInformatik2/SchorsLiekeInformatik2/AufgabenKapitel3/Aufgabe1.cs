@@ -23,22 +23,24 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 dauer = (int) CheckDataTypeInInput(IntegerError, Datentyp.Integer);
             }
 
-            Console.WriteLine("Startkapital: " + startKapital + " Euro");
+
+            Console.WriteLine("Startkapital: " + startKapital + "€");
             Console.WriteLine("Zinssatz: " + zinssatz + "%");
 
             double endkapital = startKapital; // Fuer den Anfang ist das Endkapital so gross wie das Endkapital.
             for (int i = 0; i < dauer; i++) {
                 // das wird der Dauer entsprechend wiederholt, mit immer dem neuen Endkapital als neuer Input
-                endkapital += endkapital * (zinssatz / 100);
+                endkapital += Math.Round(endkapital * (zinssatz / 100), 2);
 
                 if (i != dauer - 1) {
                     // Fuer jedes Jahr die neue Ausgangslage anzeigen, ausser fuer das letzte.
                     int jahr = i + 1;
-                    Console.WriteLine("Kapital nach Jahr " + jahr + ": " + endkapital + " Euro");
+                    Console.WriteLine("Kapital nach Jahr " + jahr + ": " + endkapital + "€");
                 }
             }
-
-            endkapital = Math.Round(endkapital, 3); // Runden auf 3 Nachkommastellen (s. Endkapital in Aufgabe)
+            // TODO: Punkt bei grossen Zahlen vor Komma
+            
+            endkapital = Math.Round(endkapital, 2); // Runden auf 2 Nachkommastellen
             string jahrSubstantivNumerus;
             if (dauer != 1) {
                 jahrSubstantivNumerus = " Jahren: ";
@@ -47,13 +49,13 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 jahrSubstantivNumerus = " Jahr: ";
             }
 
-            Console.WriteLine("Endkapital nach " + dauer + jahrSubstantivNumerus + endkapital + " Euro");
+            Console.WriteLine("\nEndkapital nach " + dauer + jahrSubstantivNumerus + endkapital + "€");
         }
 
         // TODO: Fehlertexte in Art PropertiesFile auslagern
-        public static string GeldbetragError = "Bitte geben Sie einen Geldbetrag > 0.0 ein. Buchstaben sind nicht erlaubt.";
+        public static string GeldbetragError = "Fehler: Bitte geben Sie einen Geldbetrag > 0.0 ein, ohne Eurozeichen. Buchstaben sind nicht erlaubt.";
 
-        public static string IntegerError = "Bitte geben Sie eine Ganzzahl > 0 ein. Buchstaben sind nicht erlaubt.";
+        public static string IntegerError = "Fehler: Bitte geben Sie eine Ganzzahl > 0 ein. Buchstaben sind nicht erlaubt.";
 
         /**
          * Methode, die den String-Input darauf ueberprueft, ob dieser in den gewuenschten Datentyp umgewandelt werden kann.
@@ -80,9 +82,11 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                             break;
                     }
                 }
-                catch (FormatException) {
+                catch (FormatException) { // Evtl. abbrechen, wenn die Eingabe zu oft falsch ist.
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(errorMessage);
-                    // Evtl. abbrechen, wenn die Eingabe zu oft falsch ist.
+                    Console.ResetColor();
+                    
                 }
             }
 

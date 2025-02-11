@@ -11,24 +11,26 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3
             double produktKosten;
             double erloes;
             int produktionsMenge;
-        
-            Console.WriteLine("Bitte geben Sie die fixen Kosten ein: ");
+            
+            Console.WriteLine("Berechenen Sie den Erlös Ihres Produkts.");
+            
+            Console.WriteLine("Bitte geben Sie die einmaligen Fixkosten ein: ");
             fixKosten = (double) CheckDataTypeInInput(GeldbetragError, Datentyp.Double);
         
+            Console.WriteLine("Wie viele Produkte sollen hergestellt werden?");
+                    produktionsMenge = (int) CheckDataTypeInInput(IntegerError, Datentyp.Integer);
+                    
             Console.WriteLine("Bitte geben Sie die Kosten für ein Produkt ein: ");
             produktKosten = (double) CheckDataTypeInInput(GeldbetragError, Datentyp.Double);
         
             Console.WriteLine("Bitte geben Sie den Erlös für ein Produkt ein: ");
             erloes = (double) CheckDataTypeInInput(GeldbetragError, Datentyp.Double);
-        
-            Console.WriteLine("Wie viele Produkte sollen hergestellt werden?");
-            produktionsMenge = (int) CheckDataTypeInInput(IntegerError, Datentyp.Integer);
-        
+            
             double gesamtKosten = fixKosten + (produktKosten * produktionsMenge); // Die Fixkosten werden nur 1x berechnet
             double gesamtErloes = erloes * produktionsMenge;
             double gewinn = gesamtErloes - gesamtKosten;
         
-            Console.WriteLine("Der Gewinn beträgt: " + gewinn + " Euro!");
+            Console.WriteLine("Der Gewinn beträgt: " + gewinn + "€!");
         }
     }
 }
