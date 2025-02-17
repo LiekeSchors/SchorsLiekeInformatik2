@@ -41,7 +41,15 @@ namespace SchorsLiekeInformatik2.AufgabenKapitel3 {
                 }
 
                 Console.WriteLine("\nMöchten sie noch eine Aufgabe testen? Drücken Sie 'j' für 'Ja', 'n' für 'Nein'.");
-                string wahl = Console.ReadLine();
+                string wahl = Console.ReadLine().ToLower();
+
+                while (!"j".Equals(wahl.ToLower()) && !"n".Equals(wahl.ToLower())) {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Bitte geben Sie ein \"j\" oder ein \"n\" ein.");
+                    Console.ResetColor();
+                    wahl = Console.ReadLine().ToLower();
+                }
+                
                 if (wahl == "j") {
                     naechsteAufgabe = true;
                 }
